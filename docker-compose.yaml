@@ -35,7 +35,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-
     container_name: mlflow-server
     depends_on:
       - postgres
@@ -46,8 +45,6 @@ services:
       - MLFLOW_S3_ENDPOINT_URL=http://minio:9000
       - AWS_ACCESS_KEY_ID=minio
       - AWS_SECRET_ACCESS_KEY=minio123
-      - MLFLOW_TRACKING_URI=postgresql://mlflow:mlflow@postgres:5432/mlflow
-      - BUCKET_NAME=mlflow
     networks:
       - mlflow-network
 networks:
